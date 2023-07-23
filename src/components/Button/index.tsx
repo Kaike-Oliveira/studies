@@ -3,13 +3,13 @@ import style from './Button.module.scss';
 
 // Type
 interface ButtonProps {
-  text: string
+  children: string;
 };
 
-function Button({ text }: ButtonProps) {
+function Button({ children }: ButtonProps) {
   return (
     <button className={style.button}>
-      {text}
+      {children}
     </button>
   )
 }

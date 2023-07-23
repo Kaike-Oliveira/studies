@@ -1,5 +1,11 @@
 .AppStyle {
-  display: flex;
+  display: grid;
+  grid-template-rows: min-content min-content auto;
+  grid-template-areas: 
+  "new-task"
+  "stopwatch"
+  "tasks"
+  ;
   row-gap: 24px;
   min-width: 320px;
   min-height: calc(100vh - 32px);
@@ -11,7 +17,7 @@
 
   @media screen and (min-width:1280px)  {
     grid-template-areas: 
-    "newTask tasks"
+    "new-task tasks"
     "stopwatch tasks"
     ;
     column-gap: 64px;

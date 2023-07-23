@@ -1,6 +1,9 @@
 // Style
 import style from './List.module.scss';
 
+// Components
+import Task from './Task';
+
 function List() {
   const tasks = [
     {
@@ -19,13 +22,13 @@ function List() {
 
   return (
     <aside className={style.taskList}>
-      <h2>Daily studies</h2>
+      <h2>Daily Studies</h2>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index} className={style.task}>
-            <h3>{task.task}</h3>
-            <span>{task.time}</span>
-          </li>
+          <Task
+            key={index}
+            {...task}
+          />
         ))}
       </ul>
     </aside>
