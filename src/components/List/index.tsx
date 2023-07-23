@@ -1,16 +1,32 @@
+// Style
+import style from './List.module.scss';
+
 function List() {
+  const tasks = [
+    {
+      task: 'React',
+      time: '02:00:00'
+    },
+    {
+      task: 'Javascript',
+      time: '01:00:00'
+    },
+    {
+      task: 'Typescript',
+      time: '03:00:00'
+    }
+  ]
+
   return (
-    <aside>
+    <aside className={style.taskList}>
       <h2>Daily studies</h2>
       <ul>
-        <li>
-          <h3>Task 1</h3>
-          <span>02:00:00</span>
-        </li>
-        <li>
-          <h3>Task 2</h3>
-          <span>01:00:00</span>
-        </li>
+        {tasks.map((task, index) => (
+          <li key={index} className={style.task}>
+            <h3>{task.task}</h3>
+            <span>{task.time}</span>
+          </li>
+        ))}
       </ul>
     </aside>
   )
