@@ -1,9 +1,15 @@
+// Core
 import React from 'react';
+
+// Components
+import Form from './components/Form';
+import List from './components/List';
 
 function App() {
   return (
     <div className="App">
-      Hello World
+      <Form />
+      <List />
     </div>
   );
 }
