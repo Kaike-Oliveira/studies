@@ -32,7 +32,9 @@ function Form() {
           required
         />
       </div>
-        <Button />
+        <Button
+          text="Add"
+        />
     </form>
   )
 }
