@@ -1,3 +1,6 @@
+// Core
+import { useState } from 'react';
+
 // Style
 import style from './List.module.scss';
 
@@ -5,24 +8,26 @@ import style from './List.module.scss';
 import Task from './Task';
 
 function List() {
-  const tasks = [
-    {
-      task: 'React',
-      time: '02:00:00'
-    },
-    {
-      task: 'Javascript',
-      time: '01:00:00'
-    },
-    {
-      task: 'Typescript',
-      time: '03:00:00'
-    }
-  ]
+  const [tasks, setTasks] = useState(
+    [
+      {
+        task: 'React',
+        time: '02:00:00'
+      },
+      {
+        task: 'Javascript',
+        time: '01:00:00'
+      },
+      {
+        task: 'Typescript',
+        time: '03:00:00'
+      }
+    ]
+  );
 
   return (
     <aside className={style.taskList}>
-      <h2>Daily Studies</h2>
+      <h2 onClick={() => setTasks([...tasks, {task: "Studie state", time: "02:00:00"}])}>Daily Studies</h2>
       <ul>
         {tasks.map((task, index) => (
           <Task
