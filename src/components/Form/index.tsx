@@ -1,19 +1,23 @@
 // Core
 import { useState } from 'react';
 
+import { ITask } from '../../types/task';
+
 // Style
 import style from './Form.module.scss';
 
 // Components
 import Button from "../Button";
 
-function Form() {
+function Form({ setTasks }: { setTasks: React.Dispatch<React.SetStateAction<ITask[]>> }) {
   const [task, setTask] = useState("");
   const [time, setTime] = useState("00:00:00");
 
   function addTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('state', task, time);
+    setTasks(oldTasks => [...oldTasks, {task, time}]);
+    setTask("");
+    setTime("00:00:00");
   };
 
   return (
@@ -47,7 +51,7 @@ function Form() {
           required
         />
       </div>
-        <Button>Add</Button>
+        <Button type="submit">Add</Button>
     </form>
   )
 }
